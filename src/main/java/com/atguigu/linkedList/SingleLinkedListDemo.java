@@ -56,6 +56,10 @@ class SingleLinkedList {
      */
     private Hero head = new Hero(0, "", "");
 
+    public Hero getHead() {
+        return head;
+    }
+
     /**
      * 删除编号为no的节点
      * 思路：
