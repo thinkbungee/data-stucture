@@ -2,6 +2,9 @@ package com.atguigu.linkedList;
 
 import lombok.Data;
 
+/**
+ * 双向链表
+ */
 public class DoubleLinkedListDemo {
 
     public static void main(String[] args) {
