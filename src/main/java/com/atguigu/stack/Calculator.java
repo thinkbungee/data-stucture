@@ -2,6 +2,7 @@ package com.atguigu.stack;
 
 /**
  * 使用栈来实现计算器的功能
+ * 中缀表达式
  */
 public class Calculator {
 
