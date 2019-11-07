@@ -124,6 +124,7 @@ public class ShellSort {
     PrintNowTime.printTime();
   }
 
+  //插入法效率
   //8万   1秒
   //80万   1秒
   //800万  2秒
