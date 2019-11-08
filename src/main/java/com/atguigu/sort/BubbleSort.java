@@ -48,6 +48,7 @@ public class BubbleSort {
     PrintNowTime.printTime();
 
     //效率测试：8万随机数排列，大概需要10~20秒
+    //80万   20多分钟
   }
 
   // 找bubbleSortAnalyze每次排序的规律，再进行一个循环
