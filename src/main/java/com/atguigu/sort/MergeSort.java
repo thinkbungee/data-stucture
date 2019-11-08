@@ -1,5 +1,7 @@
 package com.atguigu.sort;
 
+import com.atguigu.util.MyArray;
+import com.atguigu.util.PrintNowTime;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
@@ -15,6 +17,20 @@ public class MergeSort {
   public void testMergeSort() {
     mergeSort(arr, 0, arr.length - 1, new int[arr.length]);
     System.out.println(Arrays.toString(arr));
+  }
+
+  //归并排序效率测试
+  //8w  20多毫秒
+  //80w 200来毫秒
+  //800w 1秒左右
+  //8000w 20来秒
+  @Test
+  public void testMergeSortEfficency() {
+    PrintNowTime.printTime();
+    int[] ints = MyArray.newAraay(800000);
+    mergeSort(ints, 0, ints.length - 1, new int[ints.length]);
+    PrintNowTime.printTime();
+//    System.out.println(Arrays.toString(ints));
   }
 
   public void mergeSort(int[] arr, int left, int right, int[] temp) {
