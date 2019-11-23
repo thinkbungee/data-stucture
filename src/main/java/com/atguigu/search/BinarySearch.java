@@ -13,14 +13,14 @@ public class BinarySearch {
 
   @Test
   public void testBinarySearch() {
-    int i = binarySearch(arr, 0, arr.length, 1000);
+    int i = binarySearch(arr, 0, arr.length - 1, 1234);
     System.out.println(i);
   }
 
   @Test
   public void testBinarySearchPlus() {
     int arr[] = {1, 8, 10, 89,1000, 1000, 1000, 1234};
-    List list = binarySearchPlus(arr, 0, arr.length, 1000);
+    List list = binarySearchPlus(arr, 0, arr.length - 1, 1234);
     System.out.println(list);
   }
 
