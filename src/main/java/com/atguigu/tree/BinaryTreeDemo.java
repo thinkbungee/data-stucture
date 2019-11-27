@@ -46,6 +46,18 @@ public class BinaryTreeDemo {
     System.out.println("===后序遍历查找===");//比较了2次
     node = binaryTree.postOrderSearch(5);
     System.out.println(node);
+
+    System.out.println("===测试删除节点===");
+    System.out.println("删除前：");
+    binaryTree.preOrder();
+    System.out.println("删除no=5的节点");
+    binaryTree.delNode(5);
+    binaryTree.preOrder();
+    System.out.println("删除no=3的号节点");
+    binaryTree.delNode(3);
+    binaryTree.preOrder();
+
+
   }
 }
 
@@ -116,6 +128,20 @@ class BinaryTree {
       System.out.println("该二叉树为空，无法遍历");
     }
     return null;
+  }
+
+  //删除
+  public void delNode(int no) {
+
+    if (this.root != null) {
+      if (this.root.getNo() == no) {
+        this.root = null;
+      } else {
+        this.root.delNode(no);
+      }
+    } else {
+      System.out.println("是一颗空树");
+    }
   }
 }
 
@@ -242,6 +268,34 @@ class HeroNode {
       return this;
     }
     return result;
+  }
+
+  //==============删除=================//
+
+  /**
+   * 删除节点
+   * 1.因为二叉树是单向的，所以是去判断当前的节点的子节点是否应该删除
+   */
+  public void delNode(int no) {
+    //判断左子节点是否就是需要删除的节点
+    if (this.left != null && this.left.no == no) {
+      this.left = null;
+      return;
+    }
+    //判断右子节点是否就是需要删除的节点
+    if (this.right != null && this.right.no == no) {
+      this.right = null;
+      return;
+    }
+    //左递归
+    if (this.left != null) {
+      this.left.delNode(no);
+    }
+    //右递归
+    if (this.right != null) {
+      this.right.delNode(no);
+    }
+
   }
 
 }
