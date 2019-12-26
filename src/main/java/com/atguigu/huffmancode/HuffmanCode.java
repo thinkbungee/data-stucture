@@ -69,7 +69,9 @@ public class HuffmanCode {
   public void test4() {
     zipFile("E:\\pushfiles\\哎呀行了行了.jpg",
         "E:\\pushfiles\\1.zip");
-    System.out.println("压缩完成");
+//    zipFile("D:\\BaiduNetdiskDownload\\数据结构\\课件\\尚硅谷_韩顺平_Java数据结构和算法【最新版】.pptx",
+//        "D:\\BaiduNetdiskDownload\\数据结构\\课件\\1.zip");
+    System.out.println("哈夫曼压缩完成");
   }
 
   //测试unzipFile方法
@@ -77,6 +79,7 @@ public class HuffmanCode {
   public void test5() {
     unzipFile("E:\\pushfiles\\1.zip",
         "E:\\pushfiles\\哈哈.jpg");
+    System.out.println("哈夫曼解压完成");
   }
 
   /**
