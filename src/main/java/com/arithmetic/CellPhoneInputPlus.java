@@ -59,7 +59,7 @@ public class CellPhoneInputPlus {
             continue;
           }
           int num = Integer.parseInt(String.valueOf(c));
-          sb.append(str[num].charAt(count % str[num].length() - 1));
+          sb.append(str[num].charAt(Math.max(count % str[num].length() - 1, 0)));//0数字按键需要单独处理，长度为1,1%1-1 = -1
           cur++;
         }
       }
