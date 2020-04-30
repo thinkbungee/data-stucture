@@ -48,12 +48,15 @@ public class CellPhoneInputPlus {
             while (c1 == c) {
               cur++;
               count++;
+              if (cur + 1 >= length) {
+                break;
+              }
               c1 = string.charAt(cur + 1);
             }
-            if (c == '/') {
-              cur++;
-              continue;
-            }
+          }
+          if (c == '/') {
+            cur++;
+            continue;
           }
           int num = Integer.parseInt(String.valueOf(c));
           sb.append(str[num].charAt(count % str[num].length() - 1));
