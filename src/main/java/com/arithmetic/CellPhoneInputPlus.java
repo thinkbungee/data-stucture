@@ -43,23 +43,25 @@ public class CellPhoneInputPlus {
           cur++;
         } else {
           //英文输入，判断下一个是否一样数字
-          if (cur + 1 < length) {
-            char c1 = string.charAt(cur + 1);
+          if (cur + 1 < length) { //防止越界
+            char c1 = string.charAt(cur + 1);//下一个数字
             while (c1 == c) {
               cur++;
               count++;
-              if (cur + 1 >= length) {
+              if (cur + 1 >= length) {//防止越界
                 break;
               }
               c1 = string.charAt(cur + 1);
             }
           }
           if (c == '/') {
+            //直接跳出循环，继续下一轮
             cur++;
             continue;
           }
           int num = Integer.parseInt(String.valueOf(c));
-          sb.append(str[num].charAt(Math.max(count % str[num].length() - 1, 0)));//0数字按键需要单独处理，长度为1,1%1-1 = -1
+          //0数字按键需要单独处理，长度为1 , 1%1 -1 = -1 所以需要 置为0
+          sb.append(str[num].charAt(Math.max(count % str[num].length() - 1, 0)));
           cur++;
         }
       }
