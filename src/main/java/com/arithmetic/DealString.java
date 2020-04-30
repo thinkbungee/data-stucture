@@ -1,7 +1,8 @@
 package com.arithmetic;
 
-import java.util.Arrays;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * 字符串处理
@@ -22,47 +23,39 @@ import java.util.List;
  */
 public class DealString {
 
+  public static void main(String[] args) throws IOException {
+    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    String input;
+    while ((input = bufferedReader.readLine()) != null) {
+      int count = Integer.parseInt(input);
+      StringBuilder result = new StringBuilder();
+      for(int i = 0 ; i < count ; i ++) {
+        input = bufferedReader.readLine();
 
-  public static void main(String[] args) {
-    deal(Arrays.asList("12345678", "123456789"));
-  }
+        int start = 0;
+        int end = 8;
+        int length = input.length() / 8;
 
-  public static String[] deal(List<String> list) {
-
-    for (String str : list) {
-      //如果刚好长度为8，无需处理
-      if (str.length() == 8) {
-        System.out.println(str);
-        continue;
-      }
-      if (str.length() < 8) {
-        System.out.print(str);//输出
-        //补0
-        for (int i = 0; i < 8 - str.length(); i++) {
-          System.out.print("0");
+        if(input.length() % 8 > 0) {
+          ++ length;
         }
-        System.out.println();//换行
-      } else {
-        int n = str.length() / 8;
-        int m = str.length() % 8;
-        if (m == 0) {
-          for (int k = 0; k < n; k++) {
-            System.out.println(str.substring(8 * k, 8 * k + 8));
+
+        for(int j = 0 ; j < length ; j ++) {
+          end = Math.min(end, input.length());
+          String current = input.substring(start, end);
+          result.append(current);
+          if(current.length() < 8) {
+            for(int k = 0 ; k < 8 - current.length() ; k ++) {
+              result.append("0");
+            }
           }
-        } else {
-          for (int k = 0; k < n; k++) {
-            System.out.println(str.substring(8 * k, 8 * k + 8));
-          }
-          //最后几位补0
-          for (int y = 8 * n; y < str.length(); y++) {
-            System.out.print(str.charAt(y));
-          }
-          for (int x = 0; x < 8 + 8 * n - str.length(); x++) {
-            System.out.print("0");
-          }
+          result.append("\n");
+          start += 8;
+          end += 8;
         }
       }
+      System.out.println(result.toString().trim());
     }
-    return null;
   }
+
 }
