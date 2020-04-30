@@ -37,8 +37,8 @@ public class CellPhoneInputPlus {
           cur++;
           continue;
         }
-        //就是数字
         if (isNum) {
+          //就是数字
           sb.append(c);
           cur++;
         } else {
