@@ -22,6 +22,7 @@ public class CellPhoneInputPlus {
     String[] str = {" ", ",.", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     Scanner scanner = new Scanner(System.in);
     while (scanner.hasNextLine()) {
+      long startTime = System.currentTimeMillis();
       StringBuilder sb = new StringBuilder();
       String string = scanner.nextLine();
       int length = string.length();
@@ -40,7 +41,6 @@ public class CellPhoneInputPlus {
         if (isNum) {
           //就是数字
           sb.append(c);
-          cur++;
         } else {
           //英文输入，判断下一个是否一样数字
           if (cur + 1 < length) { //防止越界
@@ -60,12 +60,17 @@ public class CellPhoneInputPlus {
             continue;
           }
           int num = Integer.parseInt(String.valueOf(c));
-          //0数字按键需要单独处理，长度为1 , 1%1 -1 = -1 所以需要 置为0
-          sb.append(str[num].charAt(Math.max(count % str[num].length() - 1, 0)));
-          cur++;
+          // 1%1 -1 = -1 所以需要 置为当前按键的最大长度减一
+          int i = count % str[num].length() - 1;
+          sb.append(
+              str[num].charAt(i < 0 ? str[num].length() - 1
+                  : i));
         }
+        cur++;
       }
       System.out.println(sb.toString());
+      long endTime = System.currentTimeMillis();
+      System.out.println("花费时间：" + (endTime - startTime));
     }
   }
 }
